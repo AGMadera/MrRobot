@@ -21,7 +21,7 @@ public class Robot {
      */
     public static WebDriver driver;
     public static final String user="gam_300@hotmail.com";
-    public static final String pass="150293MAderA";
+    public static final String pass="2342wd";
     public static final String url="https://mail.google.com";
 
     public void realizarLogin(){
