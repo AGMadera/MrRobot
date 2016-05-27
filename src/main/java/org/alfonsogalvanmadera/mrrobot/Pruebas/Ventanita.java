@@ -8,6 +8,8 @@ package org.alfonsogalvanmadera.mrrobot.Pruebas;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
+
 
 /**
  *
@@ -116,14 +118,49 @@ public class Ventanita extends javax.swing.JFrame {
         d.setUser(user);
         d.setPass(pass);
         
+   
+        
         WebDriver driver=new FirefoxDriver();
         driver.get(d.getLink());
-        driver.findElement(By.id("login_field")).sendK­eys(d.getUser());
+        driver.findElement(By.id("usuario")).sendK­eys(d.getUser());
         
         
         driver.findElement(By.id("password")).send­Keys(d.getPass());
-        driver.findElement(By.name("commit")).clic­k();
-        dispose();
+        driver.findElement(By.name("button")).clic­k();
+        
+       
+        //driver.get("http://servicios.casaley.com.mx/portal_proveedores/vs_5.php");
+        driver.get("http://servicios.casaley.com.mx/portal_proveedores/vs_5_todas_excel.php");
+        
+        
+        //FirefoxProfile firefoxProfile=new FirefoxProfile();
+        //firefoxProfile.setPreference("browser.helperApps.neverAsk.saveToDisk","application/octet-stream,text/csv");
+        
+        /*
+        FirefoxProfile fprofile = new FirefoxProfile();
+        fprofile.setPreference("browser.download.dir", "D:\\WebDriverdownloads");
+        fprofile.setPreference("browser.download.folderList", 2);
+        fprofile.setPreference("browser.helperApps.neverAsk.saveToDisk", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;" 
+                + "application/pdf;"+ "application/vnd.openxmlformats-officedocument.wordprocessingml.document;" 
+                + "text/plain;"  
+                + "text/csv"); 
+        fprofile.setPreference( "browser.download.manager.showWhenStarting", false );
+        fprofile.setPreference( "pdfjs.disabled", true );
+        */
+        
+        
+        
+        //driver2 = new FirefoxDriver(fprofile);
+                
+                
+        //FirefoxProfile.setPreferences("browser.helperApps.neverAsk.saveToDisk","text/csv");
+        
+        //driver.findElement(By.id("MenuBar1")).click();
+        //driver.findElement(By.partialLinkText("Venta Semanal")).click();
+        
+        
+        
+        //dispose();
         //System.out.println("la url es: "+driver.getCurrentUrl());
     }//GEN-LAST:event_jButton1ActionPerformed
 
