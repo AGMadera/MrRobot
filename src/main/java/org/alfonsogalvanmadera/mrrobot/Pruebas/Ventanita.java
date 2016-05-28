@@ -150,8 +150,11 @@ public class Ventanita extends javax.swing.JFrame {
             driver.get("http://servicios.casaley.com.mx/portal_proveedores/vs_5_todas_excel.php");
             
             Robot rob= new Robot();
+            rob.keyPress(KeyEvent.VK_TAB);///Activar en caso de que la opcion este en otro lugar
             Thread.sleep(2000);
             rob.keyPress(KeyEvent.VK_ENTER);
+            
+            
             //driver.manage();
             
             /*
