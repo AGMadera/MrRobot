@@ -18,7 +18,7 @@ public class Tutorials1 {
     public static void main(String[] args) {
         WebDriver driver=new FirefoxDriver();
         driver.get("https://github.com/login");
-        driver.findElement(By.id("login_field")).sendK­eys("usuario");
+        driver.findElement(By.id("login_field")).sendKeys("usuario");
         //driver.findElement(By.id("next")).clic­k();
         
         driver.findElement(By.id("password")).send­Keys("Contrasenia");
