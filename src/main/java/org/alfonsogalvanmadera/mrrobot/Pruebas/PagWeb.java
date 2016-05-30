@@ -11,6 +11,7 @@ public abstract class PagWeb {
     private String campoPass;
     private String boton;
     private String cadena;
+    private String salida;
     
 
     public String getCampoUsuario() {
@@ -43,6 +44,14 @@ public abstract class PagWeb {
 
     public void setCadena(String cadena) {
         this.cadena = cadena;
+    }
+
+    public String getSalida() {
+        return salida;
+    }
+
+    public void setSalida(String salida) {
+        this.salida = salida;
     }
     
     

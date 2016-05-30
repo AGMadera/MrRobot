@@ -1,32 +1,28 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+// Error reading included file Templates/GUIForms/Templates/Licenses/license-.txt
 package org.alfonsogalvanmadera.mrrobot.Pruebas;
 
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
-
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-
 /**
  *
- * @author alfonsogalvanmadera
+ * @author MBI
  */
-public class Ventanita extends javax.swing.JFrame {
 
+
+public class pruebaVentanaAuto extends javax.swing.JFrame {
+ public CasaLey cas;
+ public Oxxo ox;
     /**
-     * Creates new form Ventanita
+     * Creates new form pruebaVentanaAuto
      */
-    public Ventanita() {
+    public pruebaVentanaAuto() {
         initComponents();
     }
 
@@ -46,6 +42,8 @@ public class Ventanita extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         textoPass = new javax.swing.JPasswordField();
+        comboSeleccion = new javax.swing.JComboBox<>();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,6 +60,10 @@ public class Ventanita extends javax.swing.JFrame {
             }
         });
 
+        comboSeleccion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Casa Ley", "Oxxo" }));
+
+        jLabel4.setText("jLabel4");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -72,7 +74,7 @@ public class Ventanita extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
                                 .addGap(29, 29, 29))
                             .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -85,10 +87,14 @@ public class Ventanita extends javax.swing.JFrame {
                         .addComponent(textoUrl)
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(textoPass, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton1)
-                            .addComponent(textoPass, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(comboSeleccion, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -105,62 +111,90 @@ public class Ventanita extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(textoPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(comboSeleccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addGap(27, 27, 27))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String seleccion= comboSeleccion.getSelectedItem().toString();
+        jLabel4.setText(seleccion);
        
         try {
             // TODO add your handling code here:
             String url=textoUrl.getText();
             String user=textoUsuario.getText();
             String pass=textoPass.getText();
-            
+           
+
             Datos d=new Datos();
             d.setLink(url);
             d.setUser(user);
             d.setPass(pass);
             
-           // CasaLey cas=new CasaLey();
-            //cas.getCampoPass();
+            switch (seleccion){
+                case "Casa Ley":
+                CreadorDePag cr=new CreadorDePag();
+                 cas=cr.creandoCasaLey(true);
+                //prueba p=new prueba();
+                //p.recibir(cas);
+                break;
+                
+                case "Oxxo":
+                    CreadorDePag o=new CreadorDePag();
+                    ox=o.creandoOxxo(true);
+                
+              
+            }
+                
+              
             
+            /*
+            CasaLey cas=new CasaLey();
+            cas.getCampoUsuario();
+            cas.getCampoPass();
+            cas.getBoton();
+            cas.getCadena();
+            */
             
             WebDriver driver=new FirefoxDriver();
             driver.get(d.getLink());
-            driver.findElement(By.id("usuario")).sendK­eys(d.getUser());///Tengo que sacar este campo
-            
-            
-            driver.findElement(By.id("password")).send­Keys(d.getPass());///Tengo que sacar este campo
-            driver.findElement(By.name("button")).clic­k();///Tengo que sacar este campo
-            
-            
-            //driver.get("http://servicios.casaley.com.mx/portal_proveedores/vs_5.php");
-            driver.get("http://servicios.casaley.com.mx/portal_proveedores/vs_5_todas_excel.php");///Tengo que sacar este campo
-            
+            driver.findElement(By.id(cas.getCampoUsuario())).sendK­eys(d.getUser());
+
+            driver.findElement(By.id(cas.getCampoPass())).send­Keys(d.getPass());
+            driver.findElement(By.name(cas.getBoton())).clic­k();
+
+           
+            driver.get(cas.getCadena());
+                
+           
+
             Robot rob= new Robot();
             Thread.sleep(2000);
-            rob.keyPress(KeyEvent.VK_DOWN);///Activar en caso de que la opcion este en otro lugar
+            rob.keyPress(KeyEvent.VK_DOWN);
             Thread.sleep(2000);
-            
+
             rob.keyPress(KeyEvent.VK_ENTER);
             Thread.sleep(2000);
-            
-            driver.get("http://servicios.casaley.com.mx/portal_proveedores/index.php?doLogout=true");///Tambien sacar!!
+
+            driver.get(cas.getSalida());
             //driver.close();
-            
+
             //dispose();
             //System.out.println("la url es: "+driver.getCurrentUrl());
         } catch (AWTException ex) {
-            Logger.getLogger(Ventanita.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(pruebaVentanaAuto.class.getName()).log(Level.SEVERE, null, ex);
         } catch (InterruptedException ex) {
-            Logger.getLogger(Ventanita.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(pruebaVentanaAuto.class.getName()).log(Level.SEVERE, null, ex);
         }
-       
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -180,29 +214,31 @@ public class Ventanita extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Ventanita.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(pruebaVentanaAuto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Ventanita.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(pruebaVentanaAuto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Ventanita.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(pruebaVentanaAuto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Ventanita.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(pruebaVentanaAuto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Ventanita().setVisible(true);
+                new pruebaVentanaAuto().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> comboSeleccion;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPasswordField textoPass;
     private javax.swing.JTextField textoUrl;
     private javax.swing.JTextField textoUsuario;
