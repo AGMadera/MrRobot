@@ -125,77 +125,29 @@ public class Ventanita extends javax.swing.JFrame {
             d.setLink(url);
             d.setUser(user);
             d.setPass(pass);
-            /*
-            FirefoxProfile fprofile = new FirefoxProfile();
-            fprofile.setPreference("browser.download.dir", "C:\\WebDriverdownloads");
-            fprofile.setPreference("browser.download.folderList", 2);
-            fprofile.setPreference("browser.helperApps.neverAsk.saveToDisk", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;"
-            + "application/pdf;"+ "application/vnd.openxmlformats-officedocument.wordprocessingml.document;"
-            + "text/plain;"
-            + "text/csv");
-            fprofile.setPreference( "browser.download.manager.showWhenStarting", false );
-            fprofile.setPreference( "pdfjs.disabled", true );
-            */
             
             WebDriver driver=new FirefoxDriver();
             driver.get(d.getLink());
-            driver.findElement(By.id("usuario")).sendK­eys(d.getUser());
+            driver.findElement(By.id("usuario")).sendK­eys(d.getUser());///Tengo que sacar este campo
             
             
-            driver.findElement(By.id("password")).send­Keys(d.getPass());
-            driver.findElement(By.name("button")).clic­k();
+            driver.findElement(By.id("password")).send­Keys(d.getPass());///Tengo que sacar este campo
+            driver.findElement(By.name("button")).clic­k();///Tengo que sacar este campo
             
             
             //driver.get("http://servicios.casaley.com.mx/portal_proveedores/vs_5.php");
-            driver.get("http://servicios.casaley.com.mx/portal_proveedores/vs_5_todas_excel.php");
+            driver.get("http://servicios.casaley.com.mx/portal_proveedores/vs_5_todas_excel.php");///Tengo que sacar este campo
             
             Robot rob= new Robot();
-            rob.keyPress(KeyEvent.VK_TAB);///Activar en caso de que la opcion este en otro lugar
             Thread.sleep(2000);
+            rob.keyPress(KeyEvent.VK_DOWN);///Activar en caso de que la opcion este en otro lugar
+            Thread.sleep(2000);
+            
             rob.keyPress(KeyEvent.VK_ENTER);
+            Thread.sleep(2000);
             
-            
-            //driver.manage();
-            
-            /*
-            JFileChooser fileChooser = new JFileChooser();
-            if (fileChooser.showSaveDialog(modalToComponent) == JFileChooser.APPROVE_OPTION) {
-            File file = fileChooser.getSelectedFile();
-            // save to file
-            }*/
-            
-            /*
-            fprofile.setPreference("browser.download.dir",1);
-            fprofile.setPreference("browser.download.manager.showWhenStarting",false);
-            fprofile.setPreference("browser.helperApps.neverAsk.saveToDisk","application/xls;text/csv");
-            */
-            
-            //FirefoxProfile firefoxProfile=new FirefoxProfile();
-            //firefoxProfile.setPreference("browser.helperApps.neverAsk.saveToDisk","application/octet-stream,text/csv");
-            
-            /*
-            FirefoxProfile fprofile = new FirefoxProfile();
-            fprofile.setPreference("browser.download.dir", "D:\\WebDriverdownloads");
-            fprofile.setPreference("browser.download.folderList", 2);
-            fprofile.setPreference("browser.helperApps.neverAsk.saveToDisk", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;"
-            + "application/pdf;"+ "application/vnd.openxmlformats-officedocument.wordprocessingml.document;"
-            + "text/plain;"
-            + "text/csv");
-            fprofile.setPreference( "browser.download.manager.showWhenStarting", false );
-            fprofile.setPreference( "pdfjs.disabled", true );
-            */
-            
-            
-            
-            //driver2 = new FirefoxDriver(fprofile);
-            
-            
-            //FirefoxProfile.setPreferences("browser.helperApps.neverAsk.saveToDisk","text/csv");
-            
-            //driver.findElement(By.id("MenuBar1")).click();
-            //driver.findElement(By.partialLinkText("Venta Semanal")).click();
-            
-            
+            driver.get("http://servicios.casaley.com.mx/portal_proveedores/index.php?doLogout=true");///Tambien sacar!!
+            driver.close();
             
             //dispose();
             //System.out.println("la url es: "+driver.getCurrentUrl());
