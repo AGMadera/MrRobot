@@ -17,8 +17,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 
 public class pruebaVentanaAuto extends javax.swing.JFrame {
- public CasaLey cas;
- public Oxxo ox;
+ public PagWeb cas;
+ //public Oxxo ox;
     /**
      * Creates new form pruebaVentanaAuto
      */
@@ -149,9 +149,13 @@ public class pruebaVentanaAuto extends javax.swing.JFrame {
                 
                 case "Oxxo":
                     CreadorDePag o=new CreadorDePag();
-                    ox=o.creandoOxxo(true);
+                    cas=o.creandoOxxo(true);
+                break;
                 
-              
+               // case "":
+                    
+                    
+                //break;
             }
                 
               
