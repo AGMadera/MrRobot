@@ -152,10 +152,12 @@ public class pruebaVentanaAuto extends javax.swing.JFrame {
                     cas=o.creandoOxxo(true);
                 break;
                 
-               // case "":
-                    
-                    
-                //break;
+                case "Chedraui":
+                    CreadorDePag ch=new CreadorDePag();
+                    cas=ch.creandoChedra(true);
+                 break;
+                 
+                 
             }
                 
               
@@ -173,7 +175,7 @@ public class pruebaVentanaAuto extends javax.swing.JFrame {
             driver.findElement(By.id(cas.getCampoUsuario())).sendK­eys(d.getUser());
 
             driver.findElement(By.id(cas.getCampoPass())).send­Keys(d.getPass());
-            driver.findElement(By.name(cas.getBoton())).clic­k();
+            driver.findElement(By.name(cas.getBoton())).click();//////////////////////////////Esta es el problema
 
            
             driver.get(cas.getCadena());
@@ -195,6 +197,8 @@ public class pruebaVentanaAuto extends javax.swing.JFrame {
             //System.out.println("la url es: "+driver.getCurrentUrl());
         } catch (AWTException ex) {
             Logger.getLogger(pruebaVentanaAuto.class.getName()).log(Level.SEVERE, null, ex);
+            
+            
         } catch (InterruptedException ex) {
             Logger.getLogger(pruebaVentanaAuto.class.getName()).log(Level.SEVERE, null, ex);
         }

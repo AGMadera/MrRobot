@@ -20,8 +20,12 @@ public class CreadorDePag {
         return c; 
     }
     
+    public Chedra creandoChedra(boolean b){
+        Chedra c=new Chedra();
+        return c;
+    }
     
     
     
-    
+     
 }
