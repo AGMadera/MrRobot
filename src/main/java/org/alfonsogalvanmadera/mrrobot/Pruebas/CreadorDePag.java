@@ -24,6 +24,10 @@ public class CreadorDePag {
         Chedra c=new Chedra();
         return c;
     }
+    public Comexa creandoComexa(boolean b){
+        Comexa comexa=new Comexa();
+        return comexa;
+    }
     
     
     
