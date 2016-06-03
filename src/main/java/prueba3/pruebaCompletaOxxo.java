@@ -1,7 +1,7 @@
 // Error reading included file Templates/GUIForms/Templates/Licenses/license-.txt
 package prueba3;
 
-import com.thoughtworks.selenium.SeleneseTestBase;
+//import com.thoughtworks.selenium.SeleneseTestBase;
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
@@ -170,7 +170,7 @@ public PagWeb cas;
             driver.get(d.getLink());
             Thread.sleep(1500);
             
-            driver.findElement(By.className("boxcloseAvisoSuc")).click();
+            driver.findElement(By.className("boxcloseAvisoSuc")).click();////////////////Accion Antes De Ingresar Login
             
             
             
@@ -178,14 +178,15 @@ public PagWeb cas;
 
             driver.findElement(By.name(cas.getCampoPass())).send­Keys(d.getPass());
             Thread.sleep(1200);
-            driver.findElement(By.name(cas.getBoton())).click();//////////////////////////////Esta es el problema
+            driver.findElement(By.name(cas.getBoton())).click();//////////////////////////////Seleccionar Nombre o id o clase
            
             driver.get(cas.getCadena());
-            
-            driver.findElement(By.xpath("//input[contains(@src, 'sel_check.jpg')]")).click();
+           
+            driver.findElement(By.xpath("//input[contains(@src, 'sel_check.jpg')]")).click();/////////////////
             driver.findElement(By.xpath("//input[contains(@src, 'sel_check.jpg')]")).click();
             Thread.sleep(2000);
             driver.findElement(By.name("generaReporteArchCsvB")).click();
+            
             
             
             Robot rob= new Robot();
@@ -201,9 +202,7 @@ public PagWeb cas;
 
             //dispose();
             //System.out.println("la url es: "+driver.getCurrentUrl());
-        } catch (AWTException ex) {
-            Logger.getLogger(pruebaCompletaOxxo.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (InterruptedException ex) {
+        } catch (AWTException | InterruptedException ex) {
             Logger.getLogger(pruebaCompletaOxxo.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -237,6 +236,7 @@ public PagWeb cas;
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new pruebaCompletaOxxo().setVisible(true);
             }
